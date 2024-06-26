@@ -25,36 +25,22 @@ public class Service01Controller {
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.TEXT_PLAIN).body(responseText.toString());
     }
 
-    /*@GetMapping(value="/createsample")
-    public ResponseEntity<String> createSample() {
-        log.info("Inside Service01Controller --> createSample");
+    @GetMapping(value="/getservice02")
+    public ResponseEntity<String> getService02() {
+        log.info("Inside Service01Controller --> getService02");
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        Random rand = new Random();
-        int sampleId;
-        sampleId = rand.nextInt(100000);
-        String responseText = "Sample ID "+ sampleId + " created at " + timeStamp;
-        return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.TEXT_PLAIN).body(responseText.toString());
-    }
-
-    @GetMapping(value="/createsampletest")
-    public ResponseEntity<String> createSampleTest() {
-        log.info("Inside Service01Controller --> createSampleTest");
-        String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        Random rand = new Random();
-        int sampleId;
-        sampleId = rand.nextInt(100000);
-        String responseText = "Sample ID "+ sampleId + " created at " + timeStamp;
+        String responseText = "Service 01 called at " + timeStamp;
         RestTemplate restTemplate = new RestTemplate();
-        String appUrl = "http://localhost:9903/testing-service/createtest";
+        String appUrl = "http://localhost:9902/service02/healthcheck";
         ResponseEntity<String> response = restTemplate.getForEntity(appUrl, String.class);
         String respTest = "";
         if (response.getStatusCode().is2xxSuccessful()){
             respTest = response.getBody();
         } else {
-            respTest = "Unable to generate Test";
+            respTest = "Unable to connect to Service 02";
         }
         responseText = responseText + respTest;
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.TEXT_PLAIN).body(responseText.toString());
-    } */
+    }
 
 }
