@@ -1,4 +1,4 @@
-package com.prasad.sampleservice.controller;
+package com.prasad.service01.controller;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -14,20 +14,20 @@ import java.util.Random;
 
 @RestController
 @Slf4j
-public class SampleController {
+public class Service01Controller {
 
 
     @GetMapping(value="/healthcheck")
     public ResponseEntity<String> healthcheck() {
-        log.info("Inside SampleController --> healthcheck");
+        log.info("Inside Service01Controller --> healthcheck");
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
-        String responseText = "sample-service-api Healthcheck @ "+ timeStamp+" - All OK";
+        String responseText = "service01 Healthcheck @ "+ timeStamp+" - All OK";
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.TEXT_PLAIN).body(responseText.toString());
     }
 
-    @GetMapping(value="/createsample")
+    /*@GetMapping(value="/createsample")
     public ResponseEntity<String> createSample() {
-        log.info("Inside SampleController --> createSample");
+        log.info("Inside Service01Controller --> createSample");
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         Random rand = new Random();
         int sampleId;
@@ -38,7 +38,7 @@ public class SampleController {
 
     @GetMapping(value="/createsampletest")
     public ResponseEntity<String> createSampleTest() {
-        log.info("Inside SampleController --> createSampleTest");
+        log.info("Inside Service01Controller --> createSampleTest");
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         Random rand = new Random();
         int sampleId;
@@ -55,6 +55,6 @@ public class SampleController {
         }
         responseText = responseText + respTest;
         return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.TEXT_PLAIN).body(responseText.toString());
-    }
+    } */
 
 }

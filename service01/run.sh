@@ -1,2 +1,2 @@
 #!/bin/bash
-java -jar target/sample-service-1.0.0.jar
+java -jar target/service01-1.0.0.jar

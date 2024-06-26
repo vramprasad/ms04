@@ -1,13 +1,13 @@
-package com.prasad.sampleservice;
+package com.prasad.service01;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SampleServiceApplication {
+public class Service01Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SampleServiceApplication.class, args);
+		SpringApplication.run(Service01Application.class, args);
 	}
 
 }
